@@ -1,10 +1,10 @@
--- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Tue Jun  4 16:16:39 2019
--- Host        : larpc01 running 64-bit Service Pack 1  (build 7601)
+-- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+-- Date        : Tue Jan 12 17:32:40 2021
+-- Host        : LAPTOP-ER3N32PK running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               c:/Users/daq/Desktop/deltav2/digital_64_v15_ss/digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K_stub.vhdl
+--               c:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K_stub.vhdl
 -- Design      : mem_gen_8_4K
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a200tffg1156-2
@@ -33,6 +33,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "clka,ena,wea[0:0],addra[11:0],dina[7:0],clkb,enb,addrb[11:0],doutb[7:0]";
 attribute x_core_info : string;
-attribute x_core_info of stub : architecture is "blk_mem_gen_v8_4_1,Vivado 2018.2";
+attribute x_core_info of stub : architecture is "blk_mem_gen_v8_4_4,Vivado 2020.2";
 begin
 end;

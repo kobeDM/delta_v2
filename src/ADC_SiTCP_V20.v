@@ -190,7 +190,7 @@ module ADC_SiTCP_V20(
 //    assign  TriG_In = (~TEST_SW ? NIM_INn[1] : 1'b0);
     assign  TesT_In = ( TEST_SW ? NIM_INn[1] : 1'b0);
     
-    assign  TRG_INn = (~TEST_SW ? NIM_INn[1] : Trig_IN_sync);
+//    assign  TRG_INn = (~TEST_SW ? NIM_INn[1] : Trig_IN_sync);
     
 //	assign	TRG_INn = NIM_INn[1];
 //	assign	TRG_INn = Trig_IN_sync;
@@ -201,7 +201,7 @@ module ADC_SiTCP_V20(
 
 //outside clock
 
-    assign  NIM_OUT =   OSC50M  ;
+    // assign  NIM_OUT =   OSC50M  ; // sahigash
 
 //system clock change
     wire    sysClk_50M;
@@ -1121,82 +1121,48 @@ AD_ADC_SIF #(
         assign    X_LED[2]    = DIP_SW[1];
         assign  X_LED[3] = CLK160M;
 
-//--------------------------------------------------------------------
-//TEST PIN INPUT
-//--------------------------------------------------------------------
 
-     reg [9:0] Test_count;  
-     reg test_127US ;  
-     reg [1:0]test_sync;
-     reg Trig_IN_sync;
-     reg [1:0] Trig_sync; 
-     reg [5:0]  tp_NIM   ;     
-     wire NIM_in;
-     
-     FD	NIM_FD_0	(.D(TesT_In), .C(CLK160M), .Q(NIM_in)); 
-     
-     always@(posedge CLK160M)begin
-        if (RST) begin
-          Test_count <= 0;
-        end else begin
-             if(TIM_1US)begin
-                 Test_count[9:0] <= Test_count[9:0] + 10'b1; //test count[6]?ｿｽﾍ趣ｿｽ?ｿｽ?ｿｽ=127us?ｿｽ?ｿｽCLK
-             end  
-        end         
-     end     
+`ifdef SIM								//?ｿｽ_?ｿｽ?ｿｽ?ｿｽV?ｿｽ~?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽV?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽs?ｿｽ?ｿｽ?ｿｽﾆゑｿｽSIM?ｿｽ?ｿｽ?ｿｽ`?ｿｽ?ｿｽ?ｿｽ?ｿｽﾆ楽?ｿｽH
+	reg				SiTCP_ACTIVE		;
+`else
+	wire				SiTCP_ACTIVE		;
+`endif
+   
+   wire             TRIG_FLG;
+   wire             TRIG_ENABLE;
+   assign TRIG_ENABLE = ~sRST & REG_TRIG_EN;
 
-     always@(posedge CLK160M)begin
-        test_sync[1:0] <= {test_sync[0],Test_count[6]};
-        test_127US <= (test_sync[1:0]==2'b10);
-     end  
-     
-     
-     always@(posedge CLK160M)begin
-        if (RST) begin
-          Trig_IN_sync <= 0;
-        end else begin
-            if(test_127US)begin
-              Trig_sync[1:0] <= {Trig_sync[0],NIM_in};
-              Trig_IN_sync <= (Trig_sync[1:0]==2'b10);      
-            end  
-        end         
-     end          
+   TRIGGER TRIGGER(
+                   // .CLK            ( CLK160M            ),
+                   .CLK            ( adcDc[1]           ),
+                   .RST            ( ~TRIG_ENABLE       ),
+                   .ADC_DATA1      ( adcData[96-1:0]    ),
+                   .ADC_DATA2      ( adcData[192-1:96]  ),
+                   .ADC_DATA3      ( adcData[288-1:192] ),
+                   .ADC_DATA4      ( adcData[384-1:288] ),
+                   .ADC_DATA5      ( adcData[480-1:384] ),
+                   .ADC_DATA6      ( adcData[576-1:480] ),
+                   .ADC_DATA7      ( adcData[672-1:576] ),
+                   .ADC_DATA8      ( adcData[768-1:672] ),
+                   .TRIG_THR       ( REG_THR[11:0]      ),
+                   .NUM_TRIG_CH    ( REG_NUMTRGCH[7:0]  ),
+                   .TRIG_OUT       ( TRIG_FLG           )
+	               );
+
+   assign  NIM_OUT =   TRIG_FLG  ; // sahigash
+   // assign  NIM_OUT =   CLKR[1]; // sahigash
+   // assign  NIM_OUT =   adcDc[1]; // sahigash
 
 
-     always@(posedge CLK160M)begin
-        if (RST) begin
-          tp_NIM[5:0] <= 0;
-        end else begin
-            if(test_127US)begin
-              tp_NIM[0]   <=  Trig_IN_sync  ;
-              tp_NIM[1]   <=  tp_NIM[0]   ;
-              tp_NIM[2]   <=  tp_NIM[1]   ;
-              tp_NIM[3]   <=  tp_NIM[2]   ;
-              tp_NIM[4]   <=  tp_NIM[3]   ;
-              tp_NIM[5]   <=  tp_NIM[4]   ;            
-            end 
-        end         
-     end          
- 
-        assign    TP_OUT    = tp_NIM[5];           
-
-	
 //------------------------------------------------------------------------------
 //	Data Buffer
 //------------------------------------------------------------------------------
 	wire	[15:0]	REG_DELAY			;//?ｿｽg?ｿｽ?ｿｽ?ｿｽK?ｿｽ[?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽb?ｿｽ`?ｿｽ?ｿｽ?ｿｽﾄゑｿｽ?ｿｽ?ｿｽﾇれだ?ｿｽ?ｿｽ?ｿｽO?ｿｽﾌデ?ｿｽ[?ｿｽ^?ｿｽ?ｿｽ]?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ驍ｩ
 												//?ｿｽT?ｿｽ?ｿｽ?ｿｽv?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽA?ｿｽ?ｿｽ?ｿｽW?ｿｽX?ｿｽ^?ｿｽﾌ托ｿｽ?ｿｽ?ｿｽﾅ変更?ｿｽﾂ能?ｿｽB
 
-`ifdef SIM								//?ｿｽ_?ｿｽ?ｿｽ?ｿｽV?ｿｽ~?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ[?ｿｽV?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽ?ｿｽs?ｿｽ?ｿｽ?ｿｽﾆゑｿｽSIM?ｿｽ?ｿｽ?ｿｽ`?ｿｽ?ｿｽ?ｿｽ?ｿｽﾆ楽?ｿｽH
-	reg				SiTCP_ACTIVE		;
-`else
-	wire				SiTCP_ACTIVE		;
-
-`endif
-
-
-
-
+    wire                REG_TRIG_EN         ;
+    wire    [15:0]      REG_THR             ;
+    wire    [7:0]       REG_NUMTRGCH        ;
 	wire				RAW_SOD    			;
 	wire	[31:0]		RAW_TRG_NUM			;
 //	wire	[12*16-1:0]	RAW_ADC				;
@@ -1256,6 +1222,9 @@ AD_ADC_SIF #(
 
 `ifdef SIM
 	assign	REG_DELAY[15:0]		= 8'd10;
+	assign	REG_TRIG_EN		    = 1'b1;
+	assign	REG_THR[15:0]		= 16'd1000;
+	assign	REG_NUMTRGCH[7:0]		= 8'd3;
 	assign	REG_HD_ID[23:0]	= 24'h012345;
 	assign	REG_LEN[15:0]		= 16'd0;
 	
@@ -1453,6 +1422,9 @@ BUFGMUX #(
 		.REG_WINDOW			(),	// out	: Window size[6:0]
 		.REG_LEN				(REG_LEN[15:0]			),	// out	: Data length[15:0]
 		.REG_DELAY			(REG_DELAY[15:0]		),	// out	: Delay time[15:0]
+		.REG_TRIG_EN			(REG_TRIG_EN		),	// out	: Trigger enable
+		.REG_THR			(REG_THR[15:0]		),	// out	: Trigger threshold[15:0]
+		.REG_NUMTRGCH		(REG_NUMTRGCH[7:0]		),	// out	: The number of channels used for trigger [5:0] // <- note!
 		.REG_0AX				(REG_HD_ID[23:16]		),
 		.REG_0BX				(REG_HD_ID[15: 8]		),
 		.REG_0CX				(REG_HD_ID[ 7: 0]		),
@@ -1463,6 +1435,70 @@ BUFGMUX #(
 	);
 
 `endif
+
+//--------------------------------------------------------------------
+//TEST PIN INPUT
+//--------------------------------------------------------------------
+
+     reg [9:0] Test_count;  
+     reg test_127US ;  
+     reg [1:0]test_sync;
+     reg Trig_IN_sync;
+     reg [1:0] Trig_sync; 
+     reg [5:0]  tp_NIM   ;     
+     wire NIM_in;
+     
+     assign  TRG_INn = (~TEST_SW ? NIM_INn[1] : Trig_IN_sync);
+
+     FD	NIM_FD_0	(.D(TesT_In), .C(CLK160M), .Q(NIM_in)); 
+     
+     always@(posedge CLK160M)begin
+        if (RST) begin
+          Test_count <= 0;
+        end else begin
+             if(TIM_1US)begin
+                 Test_count[9:0] <= Test_count[9:0] + 10'b1; //test count[6]?ｿｽﾍ趣ｿｽ?ｿｽ?ｿｽ=127us?ｿｽ?ｿｽCLK
+             end  
+        end         
+     end     
+
+     always@(posedge CLK160M)begin
+        test_sync[1:0] <= {test_sync[0],Test_count[6]};
+        test_127US <= (test_sync[1:0]==2'b10);
+     end  
+     
+     
+     always@(posedge CLK160M)begin
+        if (RST) begin
+          Trig_IN_sync <= 0;
+        end else begin
+            if(test_127US)begin
+              Trig_sync[1:0] <= {Trig_sync[0],NIM_in};
+              Trig_IN_sync <= (Trig_sync[1:0]==2'b10);      
+            end  
+        end         
+     end          
+
+
+     always@(posedge CLK160M)begin
+        if (RST) begin
+          tp_NIM[5:0] <= 0;
+        end else begin
+            if(test_127US)begin
+              tp_NIM[0]   <=  Trig_IN_sync  ;
+              tp_NIM[1]   <=  tp_NIM[0]   ;
+              tp_NIM[2]   <=  tp_NIM[1]   ;
+              tp_NIM[3]   <=  tp_NIM[2]   ;
+              tp_NIM[4]   <=  tp_NIM[3]   ;
+              tp_NIM[5]   <=  tp_NIM[4]   ;            
+            end 
+        end         
+     end          
+ 
+        assign    TP_OUT    = tp_NIM[5];           
+
+	
+
 
 /*	reg		[31:0]	counter;
 

@@ -48,6 +48,9 @@ module LOC_REG(
 	REG_MODE				,	// out	: Processing mode[1:0]
 	REG_WINDOW			,	// out	: Window size[15:0]  メモリの関係から0～4000に設定
 	REG_DELAY			,	// out	: Delay time[15:0]  メモリの関係から0～4000に設定
+	REG_TRIG_EN			,	// out	: Trigger enable
+	REG_THR				,	// out	: Trigger threshold[15:0]
+	REG_NUMTRGCH		,	// out	: The number of channels used in trig[7:0]
 	REG_LEN				,	// out	: Data length[15:0] REG_WINDOWと同じ
 	REG_0AX				,	// out	: 
 	REG_0BX				,	// out	: 
@@ -95,6 +98,11 @@ module LOC_REG(
 	output  [15:0]	REG_WINDOW		;
 	output	[15:0]	REG_LEN			;
 	output   [15:0]	REG_DELAY		;
+    //-----trigger-------------- 
+    output          REG_TRIG_EN     ;
+	output   [15:0]	REG_THR			;
+	output   [7:0]	REG_NUMTRGCH	;
+
 	output   [7:0]	REG_0AX			;
 	output   [7:0]	REG_0BX			;
 	output   [7:0]	REG_0CX			;
@@ -162,9 +170,15 @@ module LOC_REG(
 
 	reg		[7:0]	x10_Reg			;
 
-    reg     [7:0]   x1B_Reg         ;
-	reg		[7:0]	x1C_Reg			;
-	reg		[7:0]	x1D_Reg			;
+    // trigger
+	reg				x12_Reg			; // self-trigger enable
+	reg		[7:0]	x13_Reg			; // trigger threshold [15:8]
+	reg		[7:0]	x14_Reg			; // trigger threshold [7:0]
+	reg		[7:0]	x15_Reg			; // the number of channels used for trigger
+   
+    reg     [7:0]   x1B_Reg         ; // slow / fast
+	reg		[7:0]	x1C_Reg			; // slow / fast
+	reg		[7:0]	x1D_Reg			; // slow / fast
 	reg		[7:0]	x1E_Reg			;	
 
 	reg		[1:0]	x20_Reg			;	// Pedestal for ADC sum calculation
@@ -289,6 +303,11 @@ module LOC_REG(
 //			x0F_Reg[7:0]	<= 8'h45;	// Trg Monitor
 
 			x10_Reg[7:0]	<= 8'h80;	// ADC
+
+			x12_Reg			<= 1'h00;	// self-trigger enable 
+			x13_Reg[7:0]	<= 8'h00;	// trigger threshold [15:8]
+			x14_Reg[7:0]	<= 8'h00;	// trigger threshold [7:0]
+			x15_Reg[7:0]	<= 8'h00;	// the number of channels used for trigger
 
 			x1B_Reg[7:0]	<= 8'h00;   // DAC
 			x1C_Reg[7:0]	<= 8'h00;	// DAC
@@ -416,6 +435,11 @@ module LOC_REG(
 //				x0F_Reg[7:0]	<= (regCs[0] & (irAddr[3:0]==4'hF) ? irWd[7:0] : x0F_Reg[7:0]);
 
 				x10_Reg[7:0]	<= (regCs[1] & (irAddr[3:0]==4'h0) ? irWd[7:0] : x10_Reg[7:0]);
+
+				x12_Reg			<= (regCs[1] & (irAddr[3:0]==4'h2) ? irWd[0]   : x12_Reg     );
+				x13_Reg[7:0]	<= (regCs[1] & (irAddr[3:0]==4'h3) ? irWd[7:0] : x13_Reg[7:0]);
+				x14_Reg[7:0]	<= (regCs[1] & (irAddr[3:0]==4'h4) ? irWd[7:0] : x14_Reg[7:0]);
+				x15_Reg[7:0]	<= (regCs[1] & (irAddr[3:0]==4'h5) ? irWd[7:0] : x15_Reg[7:0]);
 				
 				x1B_Reg[7:0]	<= (regCs[1] & (irAddr[3:0]==4'hB) ? irWd[7:0] : x1B_Reg[7:0]);
 				x1C_Reg[7:0]	<= (regCs[1] & (irAddr[3:0]==4'hC) ? irWd[7:0] : x1C_Reg[7:0]);
@@ -568,10 +592,10 @@ module LOC_REG(
 		case(irAddr[3:0])
 			4'h0:	rdDataB[7:0]	<= x10_Reg[7:0];
 			4'h1:	rdDataB[7:0]	<= 8'd0;
-			4'h2:	rdDataB[7:0]	<= 8'd0;
-			4'h3:	rdDataB[7:0]	<= 8'd0;
-			4'h4:	rdDataB[7:0]	<= 8'd0;
-			4'h5:	rdDataB[7:0]	<= 8'd0;
+			4'h2:	rdDataB[7:0]	<= {7'd0,x12_Reg};
+			4'h3:	rdDataB[7:0]	<= x13_Reg[7:0];
+			4'h4:	rdDataB[7:0]	<= x14_Reg[7:0];
+			4'h5:	rdDataB[7:0]	<= x15_Reg[7:0];
 			4'h6:	rdDataB[7:0]	<= 8'd0;
 			4'h7:	rdDataB[7:0]	<= 8'd0;
 			4'h8:	rdDataB[7:0]	<= 8'd0;
@@ -719,13 +743,21 @@ module LOC_REG(
 	assign	LOC_RD[7:0] = orRd[7:0];
 
 	reg		[15:0]	REG_DELAY	;
+    reg             REG_TRIG_EN	;
+	reg		[15:0]	REG_THR		;
+	reg		[7:0]	REG_NUMTRGCH;
 	reg		[15:0]	REG_LEN		;
 	
 	always@ (posedge CLK) begin
-		REG_LEN[15:0]	<= {x06_Reg[6:0],x07_Reg[7:0],1'b0} - 1'b1;
-//		REG_LEN[15:0]   <= {REG_LEN[14:0],1'b0} -1'b1;    //こちらの認識としては4000,実際に使う値は7999(*2-1)する必要がある
-//		REG_DELAY[15:0]	<= {REG_LEN[15:0]} + {x08_Reg[7:0],x09_Reg[7:0]};
-        REG_DELAY[15:0] <= {x08_Reg[7:0],x09_Reg[7:0]};
+		REG_LEN[15:0]	 <= {x06_Reg[6:0],x07_Reg[7:0],1'b0} - 1'b1;
+//		REG_LEN[15:0]    <= {REG_LEN[14:0],1'b0} -1'b1;    //こちらの認識としては4000,実際に使う値は7999(*2-1)する必要がある
+//		REG_DELAY[15:0]	 <= {REG_LEN[15:0]} + {x08_Reg[7:0],x09_Reg[7:0]};
+        REG_DELAY[15:0]  <= {x08_Reg[7:0],x09_Reg[7:0]};
+
+        // trigger
+        REG_TRIG_EN      <= x12_Reg;
+        REG_THR[15:0]    <= {x13_Reg[7:0],x14_Reg[7:0]};
+        REG_NUMTRGCH[7:0]<= x15_Reg[7:0];
 	end
 
 	assign  REG_MODE[1:0] = x05_Reg[1:0];

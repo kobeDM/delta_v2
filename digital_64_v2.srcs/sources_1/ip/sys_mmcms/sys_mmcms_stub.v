@@ -1,10 +1,10 @@
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Tue Jun  4 20:43:07 2019
-// Host        : larpc01 running 64-bit Service Pack 1  (build 7601)
+// Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+// Date        : Tue Jan 12 17:32:18 2021
+// Host        : LAPTOP-ER3N32PK running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/Users/daq/Desktop/deltav2/digital_64_v15_ss/digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms_stub.v
+//               c:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms_stub.v
 // Design      : sys_mmcms
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a200tffg1156-2
