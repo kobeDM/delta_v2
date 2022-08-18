@@ -23,23 +23,23 @@
 # 2. The following source(s) files that were local or imported into the original project.
 #    (Please see the '$orig_proj_dir' and '$origin_dir' variable setting below at the start of the script)
 #
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.ngc"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/ADC_SiTCP_RAW.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/ADC_SiTCP_RING.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/AD_ADC_SIF.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/AD_ADC_SPI.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/LOC_REG.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.V"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/TIMER.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/WRAP_SiTCP_GMII_XC7A_32K.V"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/ADC_SiTCP_V20.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/constrs/digital_31_0.xdc"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/LOC_REG.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TEST_S.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/test.v"
-#    "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/clk_tb.v"
+#    "./src/SiTCP_XC7A_32K_BBT_V80.ngc"
+#    "./src/ADC_SiTCP_RAW.v"
+#    "./src/ADC_SiTCP_RING.v"
+#    "./src/AD_ADC_SIF.v"
+#    "./src/AD_ADC_SPI.v"
+#    "./src/LOC_REG.v"
+#    "./src/SiTCP_XC7A_32K_BBT_V80.V"
+#    "./src/TIMER.v"
+#    "./src/WRAP_SiTCP_GMII_XC7A_32K.V"
+#    "./src/ADC_SiTCP_V20.v"
+#    "./digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci"
+#    "./digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci"
+#    "./constrs/digital_31_0.xdc"
+#    "./src/LOC_REG.v"
+#    "./digital_64_v2.srcs/sim_1/new/TEST_S.v"
+#    "./digital_64_v2.srcs/sim_1/new/test.v"
+#    "./digital_64_v2.srcs/sim_1/new/clk_tb.v"
 #
 # 3. The following remote source files that were added to the original project:-
 #
@@ -51,23 +51,23 @@
 proc checkRequiredFiles { origin_dir} {
   set status true
   set files [list \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.ngc" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/ADC_SiTCP_RAW.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/ADC_SiTCP_RING.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/AD_ADC_SIF.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/AD_ADC_SPI.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/LOC_REG.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.V" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/TIMER.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/WRAP_SiTCP_GMII_XC7A_32K.V" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/ADC_SiTCP_V20.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/constrs/digital_31_0.xdc" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/src/LOC_REG.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TEST_S.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/test.v" \
-   "C:/Users/higas/study/DM/FW/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/clk_tb.v" \
+   "./src/SiTCP_XC7A_32K_BBT_V80.ngc" \
+   "./src/ADC_SiTCP_RAW.v" \
+   "./src/ADC_SiTCP_RING.v" \
+   "./src/AD_ADC_SIF.v" \
+   "./src/AD_ADC_SPI.v" \
+   "./src/LOC_REG.v" \
+   "./src/SiTCP_XC7A_32K_BBT_V80.V" \
+   "./src/TIMER.v" \
+   "./src/WRAP_SiTCP_GMII_XC7A_32K.V" \
+   "./src/ADC_SiTCP_V20.v" \
+   "./digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci" \
+   "./digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci" \
+   "./constrs/digital_31_0.xdc" \
+   "./src/LOC_REG.v" \
+   "./digital_64_v2.srcs/sim_1/new/TEST_S.v" \
+   "./digital_64_v2.srcs/sim_1/new/test.v" \
+   "./digital_64_v2.srcs/sim_1/new/clk_tb.v" \
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
