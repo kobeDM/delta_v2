@@ -23,34 +23,33 @@
 # 2. The following source(s) files that were local or imported into the original project.
 #    (Please see the '$orig_proj_dir' and '$origin_dir' variable setting below at the start of the script)
 #
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.ngc"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/ADC_SiTCP_RAW.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/ADC_SiTCP_RING.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/AD_ADC_SIF.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/AD_ADC_SPI.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/BITCOUNTER.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/LOC_REG.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.V"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/TIMER.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/TRIGGER.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/WRAP_SiTCP_GMII_XC7A_32K.V"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/ADC_SiTCP_V20.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_addsub_0/c_addsub_0.xci"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_accum_0/c_accum_0.xci"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_addsub_1/c_addsub_1.xci"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_addsub_2/c_addsub_2.xci"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/div_gen_0/div_gen_0.xci"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/constrs/digital_31_0.xdc"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TB_TRIGGER.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TB_DIVIDER.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/LOC_REG.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TEST_S.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/test.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/clk_tb.v"
-#    "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.sim/sim_1/behav/TB_TRIGGER_behav.wcfg"
+#    "./src/SiTCP_XC7A_32K_BBT_V80.ngc"
+#    "./src/ADC_SiTCP_RAW.v"
+#    "./src/ADC_SiTCP_RING.v"
+#    "./src/AD_ADC_SIF.v"
+#    "./src/AD_ADC_SPI.v"
+#    "./src/BITCOUNTER.v"
+#    "./src/LOC_REG.v"
+#    "./src/SiTCP_XC7A_32K_BBT_V80.V"
+#    "./src/TIMER.v"
+#    "./src/TRIGGER.v"
+#    "./src/WRAP_SiTCP_GMII_XC7A_32K.V"
+#    "./src/ADC_SiTCP_V20.v"
+#    "./digital_64_v2.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci"
+#    "./digital_64_v2.srcs/sources_1/ip/c_addsub_0/c_addsub_0.xci"
+#    "./digital_64_v2.srcs/sources_1/ip/c_accum_0/c_accum_0.xci"
+#    "./digital_64_v2.srcs/sources_1/ip/c_addsub_1/c_addsub_1.xci"
+#    "./digital_64_v2.srcs/sources_1/ip/c_addsub_2/c_addsub_2.xci"
+#    "./digital_64_v2.srcs/sources_1/ip/div_gen_0/div_gen_0.xci"
+#    "./digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci"
+#    "./digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci"
+#    "./constrs/digital_31_0.xdc"
+#    "./digital_64_v2.srcs/sim_1/new/TB_TRIGGER.v"
+#    "./digital_64_v2.srcs/sim_1/new/TB_DIVIDER.v"
+#    "./src/LOC_REG.v"
+#    "./digital_64_v2.srcs/sim_1/new/TEST_S.v"
+#    "./digital_64_v2.srcs/sim_1/new/test.v"
+#    "./digital_64_v2.srcs/sim_1/new/clk_tb.v"
 #
 # 3. The following remote source files that were added to the original project:-
 #
@@ -62,34 +61,33 @@
 proc checkRequiredFiles { origin_dir} {
   set status true
   set files [list \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.ngc" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/ADC_SiTCP_RAW.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/ADC_SiTCP_RING.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/AD_ADC_SIF.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/AD_ADC_SPI.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/BITCOUNTER.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/LOC_REG.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.V" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/TIMER.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/TRIGGER.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/WRAP_SiTCP_GMII_XC7A_32K.V" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/ADC_SiTCP_V20.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_addsub_0/c_addsub_0.xci" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_accum_0/c_accum_0.xci" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_addsub_1/c_addsub_1.xci" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_addsub_2/c_addsub_2.xci" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/div_gen_0/div_gen_0.xci" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/constrs/digital_31_0.xdc" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TB_TRIGGER.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TB_DIVIDER.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/src/LOC_REG.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TEST_S.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/test.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/clk_tb.v" \
-   "C:/Users/higas/study/DM/FW/trig/digital_64_v17_2020_03_05/digital_64_v2.sim/sim_1/behav/TB_TRIGGER_behav.wcfg" \
+   "./src/SiTCP_XC7A_32K_BBT_V80.ngc" \
+   "./src/ADC_SiTCP_RAW.v" \
+   "./src/ADC_SiTCP_RING.v" \
+   "./src/AD_ADC_SIF.v" \
+   "./src/AD_ADC_SPI.v" \
+   "./src/BITCOUNTER.v" \
+   "./src/LOC_REG.v" \
+   "./src/SiTCP_XC7A_32K_BBT_V80.V" \
+   "./src/TIMER.v" \
+   "./src/TRIGGER.v" \
+   "./src/WRAP_SiTCP_GMII_XC7A_32K.V" \
+   "./src/ADC_SiTCP_V20.v" \
+   "./digital_64_v2.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci" \
+   "./digital_64_v2.srcs/sources_1/ip/c_addsub_0/c_addsub_0.xci" \
+   "./digital_64_v2.srcs/sources_1/ip/c_accum_0/c_accum_0.xci" \
+   "./digital_64_v2.srcs/sources_1/ip/c_addsub_1/c_addsub_1.xci" \
+   "./digital_64_v2.srcs/sources_1/ip/c_addsub_2/c_addsub_2.xci" \
+   "./digital_64_v2.srcs/sources_1/ip/div_gen_0/div_gen_0.xci" \
+   "./digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci" \
+   "./digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci" \
+   "./constrs/digital_31_0.xdc" \
+   "./digital_64_v2.srcs/sim_1/new/TB_TRIGGER.v" \
+   "./digital_64_v2.srcs/sim_1/new/TB_DIVIDER.v" \
+   "./src/LOC_REG.v" \
+   "./digital_64_v2.srcs/sim_1/new/TEST_S.v" \
+   "./digital_64_v2.srcs/sim_1/new/test.v" \
+   "./digital_64_v2.srcs/sim_1/new/clk_tb.v" \
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -165,7 +163,7 @@ if { $::argc > 0 } {
 }
 
 # Set the directory path for the original project from where this script was exported
-set orig_proj_dir "[file normalize "$origin_dir/../digital_64_v17_2020_03_05"]"
+set orig_proj_dir "[file normalize "$origin_dir"]"
 
 # Check for paths and files needed for project creation
 set validate_required 0
@@ -213,18 +211,18 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.ngc" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/ADC_SiTCP_RAW.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/ADC_SiTCP_RING.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/AD_ADC_SIF.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/AD_ADC_SPI.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/BITCOUNTER.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/LOC_REG.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/SiTCP_XC7A_32K_BBT_V80.V" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/TIMER.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/TRIGGER.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/WRAP_SiTCP_GMII_XC7A_32K.V" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/ADC_SiTCP_V20.v" ]\
+ [file normalize "${origin_dir}/src/SiTCP_XC7A_32K_BBT_V80.ngc" ]\
+ [file normalize "${origin_dir}/src/ADC_SiTCP_RAW.v" ]\
+ [file normalize "${origin_dir}/src/ADC_SiTCP_RING.v" ]\
+ [file normalize "${origin_dir}/src/AD_ADC_SIF.v" ]\
+ [file normalize "${origin_dir}/src/AD_ADC_SPI.v" ]\
+ [file normalize "${origin_dir}/src/BITCOUNTER.v" ]\
+ [file normalize "${origin_dir}/src/LOC_REG.v" ]\
+ [file normalize "${origin_dir}/src/SiTCP_XC7A_32K_BBT_V80.V" ]\
+ [file normalize "${origin_dir}/src/TIMER.v" ]\
+ [file normalize "${origin_dir}/src/TRIGGER.v" ]\
+ [file normalize "${origin_dir}/src/WRAP_SiTCP_GMII_XC7A_32K.V" ]\
+ [file normalize "${origin_dir}/src/ADC_SiTCP_V20.v" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -245,7 +243,7 @@ set_property -name "top" -value "ADC_SiTCP_V20" -objects $obj
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -266,7 +264,7 @@ if { ![get_property "is_locked" $file_obj] } {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_addsub_0/c_addsub_0.xci" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sources_1/ip/c_addsub_0/c_addsub_0.xci" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -287,7 +285,7 @@ if { ![get_property "is_locked" $file_obj] } {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_accum_0/c_accum_0.xci" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sources_1/ip/c_accum_0/c_accum_0.xci" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -308,7 +306,7 @@ if { ![get_property "is_locked" $file_obj] } {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_addsub_1/c_addsub_1.xci" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sources_1/ip/c_addsub_1/c_addsub_1.xci" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -329,7 +327,7 @@ if { ![get_property "is_locked" $file_obj] } {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/c_addsub_2/c_addsub_2.xci" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sources_1/ip/c_addsub_2/c_addsub_2.xci" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -350,7 +348,7 @@ if { ![get_property "is_locked" $file_obj] } {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/div_gen_0/div_gen_0.xci" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sources_1/ip/div_gen_0/div_gen_0.xci" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -371,7 +369,7 @@ if { ![get_property "is_locked" $file_obj] } {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sources_1/ip/sys_mmcms/sys_mmcms.xci" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -392,7 +390,7 @@ if { ![get_property "is_locked" $file_obj] } {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sources_1/ip/mem_gen_8_4K/mem_gen_8_4K.xci" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -418,7 +416,7 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize "$origin_dir/../digital_64_v17_2020_03_05/constrs/digital_31_0.xdc"]"
+set file "[file normalize "$origin_dir/constrs/digital_31_0.xdc"]"
 set file_imported [import_files -fileset constrs_1 [list $file]]
 set file "constrs/digital_31_0.xdc"
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
@@ -439,13 +437,12 @@ if {[string equal [get_filesets -quiet sim_1] ""]} {
 set obj [get_filesets sim_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TB_TRIGGER.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TB_DIVIDER.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/src/LOC_REG.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/TEST_S.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/test.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.srcs/sim_1/new/clk_tb.v" ]\
- [file normalize "${origin_dir}/../digital_64_v17_2020_03_05/digital_64_v2.sim/sim_1/behav/TB_TRIGGER_behav.wcfg" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sim_1/new/TB_TRIGGER.v" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sim_1/new/TB_DIVIDER.v" ]\
+ [file normalize "${origin_dir}/src/LOC_REG.v" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sim_1/new/TEST_S.v" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sim_1/new/test.v" ]\
+ [file normalize "${origin_dir}/digital_64_v2.srcs/sim_1/new/clk_tb.v" ]\
 ]
 set imported_files [import_files -fileset sim_1 $files]
 
